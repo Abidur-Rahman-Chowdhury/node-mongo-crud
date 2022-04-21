@@ -28,5 +28,14 @@
  3. on Server: create user POST method to receive data on backend 
  4. on client side: set fetch with POST, headers,body
  5. make sure you return a json from the POST API
+ ----------------------------------------
+ Load data and show on client side
+ ------------------------------------
+ 1. create a get api;
+ 2. create a query object
+ 3.collection.find(query)
+ 4.cursor.toArray()
+ 5.return the result
+ 6. from client useEffect and display users like you have done before
 
  */
