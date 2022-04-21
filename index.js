@@ -17,8 +17,18 @@ app.use(express.json());
 const uri = "mongodb+srv://dbuser1:rvgdtZRLAZTaUfMs@cluster0.ntup3.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 async function run() {
-    await client.connect();
-    const userCollection = client.db("foodExpress").collection('user');
+    try {
+        await client.connect();
+        const userCollection = client.db("foodExpress").collection('user');
+        
+        app.post('/user', (req, res) => {
+            const newUser = req.body;
+            console.log('Adding new user', newUser);
+            res.send({result: 'success'})
+        })
+    } finally {
+        
+   }
     
 }
 run().catch(console.dir)
